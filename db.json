@@ -1,0 +1,37 @@
+{
+  "todos": [
+    {
+      "task": "faire le ménage",
+      "priority": 2,
+      "addedAt": "2023-03-31T12:18:40.699Z",
+      "completed": false,
+      "id": 7
+    },
+    {
+      "task": "Faire des courses",
+      "priority": 1,
+      "addedAt": "2023-03-31T12:33:42.037Z",
+      "completed": true,
+      "id": 8
+    },
+    {
+      "task": "Update node",
+      "priority": 2,
+      "addedAt": "2023-03-31T12:34:00.022Z",
+      "completed": false,
+      "id": 9
+    }
+  ],
+  "signupUsersList": [
+    {
+      "id": 1,
+      "email": "bolu@gmail.com",
+      "password": "1234"
+    },
+    {
+      "email": "lolop@yopmailk.com",
+      "password": "lolololo",
+      "id": 2
+    }
+  ]
+}

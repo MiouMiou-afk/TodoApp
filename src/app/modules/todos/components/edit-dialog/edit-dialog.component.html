@@ -1,0 +1,55 @@
+<div class="dialog">
+  <h2 mat-dialog-title>Edit Todo</h2>
+
+  <mat-dialog-content class="dialog__content">
+    <form [formGroup]="editTodoForm" class="form">
+      <mat-form-field>
+        <mat-label for="task">Todo</mat-label>
+
+        <input
+          formControlName="task"
+          matInput
+          id="task"
+          name="task"
+          type="text"
+          placeholder="Edit Task"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="priority">Priorité</mat-label>
+
+        <mat-select formControlName="priority" id="priority" name="priority">
+          <mat-option [value]="1">Haut</mat-option>
+          <mat-option [value]="2">Moyen</mat-option>
+          <mat-option [value]="3">Faible</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="completed">
+        <mat-label for="completed">Terminées</mat-label>
+        <mat-checkbox
+          formControlName="completed"
+          id="completed"
+          name="completed"
+        ></mat-checkbox>
+      </div>
+    </form>
+  </mat-dialog-content>
+
+  <mat-dialog-actions class="dialog__actions">
+    <button mat-button mat-dialog-close>Annuler</button>
+
+    <button
+      [disabled]="editTodoForm.invalid"
+      [mat-dialog-close]="editTodoForm.value"
+      mat-raised-button
+      color="accent"
+      class="edit-btn"
+      type="submit"
+    >
+      <mat-icon>editer</mat-icon>
+      Editer Todo
+    </button>
+  </mat-dialog-actions>
+</div>

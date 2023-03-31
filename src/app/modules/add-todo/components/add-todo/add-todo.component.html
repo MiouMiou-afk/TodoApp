@@ -1,0 +1,40 @@
+<mat-card>
+  <mat-card-title>Ajouter une Todo</mat-card-title>
+  <mat-card-subtitle>Ecrire la todo et son ordre de priorité</mat-card-subtitle>
+
+  <mat-card-content>
+    <form [formGroup]="todoForm" (ngSubmit)="addTodo()">
+      <mat-form-field appearance="fill">
+        <mat-label for="task">Todo</mat-label>
+
+        <input
+          formControlName="task"
+          matInput
+          id="task"
+          name="task"
+          placeholder="Enter new task..."
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label for="priority">Priorité</mat-label>
+
+        <mat-select formControlName="priority" id="priority" name="priority">
+          <mat-option [value]="1">Haut</mat-option>
+          <mat-option [value]="2">Moyen</mat-option>
+          <mat-option [value]="3">Faible</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button
+        [disabled]="todoForm.invalid"
+        mat-raised-button
+        color="accent"
+        type="submit"
+      >
+        <mat-icon>Ajouter</mat-icon>
+        Ajouter une Todo
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

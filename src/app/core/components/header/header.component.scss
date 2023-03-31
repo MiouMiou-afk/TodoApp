@@ -1,0 +1,17 @@
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+background: #f39090;
+  h1 {
+    margin: 0;
+    font-weight: bold;
+  }
+
+  a{
+  background: #c79393;
+  }
+}
+
+.nav__buttons > * {
+  margin-left: 0.5em;
+}

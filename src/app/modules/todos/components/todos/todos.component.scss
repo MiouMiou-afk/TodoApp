@@ -1,0 +1,35 @@
+.todos-container {
+  background: #676767;
+  border-radius: 0.6em;
+  box-shadow: 0 0 3em #e6b4b4;
+  margin: 0 auto;
+  padding: 2em;
+  width: 90vw;
+}
+
+.toolbar {
+  &__count {
+    color: #ffffffb3;
+    text-align: center;
+  }
+
+  &__toggle {
+    color: #ffffffb3;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.6rem;
+  }
+
+  &__form {
+    display: flex;
+    justify-content: flex-end;
+
+    .mat-form-field {
+      width: 40%;
+
+      &:last-child {
+        margin-left: 0.6rem;
+      }
+    }
+  }
+}

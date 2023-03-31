@@ -1,0 +1,61 @@
+<app-add-todo></app-add-todo>
+
+<ng-container *ngIf="todos$ | async as todos">
+  <div *ngIf="todos.length" class="todos-container">
+    <div class="toolbar">
+      <div class="toolbar__count">
+        <p [ngSwitch]="toolbarForm.value.filter">
+          Vous avez
+          <strong>
+            {{ todos | filter : toolbarForm.value.filter | counter }}
+          </strong>
+          todos
+        </p>
+      </div>
+
+      <div class="toolbar__toggle">
+        <mat-checkbox
+          [checked]="(isAllCompleted$ | async)!"
+          (change)="toggleAll($event)"
+          id="toggle"
+          name="toggle"
+        >
+          Tout terminer
+        </mat-checkbox>
+      </div>
+
+      <form [formGroup]="toolbarForm" class="toolbar__form">
+        <mat-form-field appearance="outline">
+          <mat-label for="sort">Trier par</mat-label>
+
+          <mat-select formControlName="sortBy" id="sort" name="sort">
+            <mat-option value="date">Date</mat-option>
+            <mat-option value="priority">Priorité</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label for="filter">Filtrer Todos</mat-label>
+
+          <mat-select formControlName="filter" id="filter" name="filter">
+            <mat-option value="all">Tous</mat-option>
+            <mat-option value="uncompleted">Terminées</mat-option>
+            <mat-option value="completed">A faire</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+    </div>
+
+    {{ toolbarForm.value.isAllCompleted }}
+
+    <app-todo
+      *ngFor="
+        let todo of todos
+          | filter : toolbarForm.value.filter
+          | sort : toolbarForm.value.sortBy
+      "
+      [todo]="todo"
+    >
+    </app-todo>
+  </div>
+</ng-container>

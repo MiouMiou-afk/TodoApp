@@ -1,0 +1,42 @@
+<mat-card>
+  <mat-card-title>
+    <h2>Bienvenue sur la Todo App</h2>
+  </mat-card-title>
+
+  <mat-card-content>
+    <ng-container *ngIf="todos$ | async as todos">
+      <p>
+        Vous avez <span>{{ todos.length }}</span> todos
+      </p>
+      <p>
+        dont
+        <span
+          >{{ todos | filter : "uncompleted" | counter }} non terminées ({{
+            todos
+              | filter : "uncompleted"
+              | counter
+              | percentage : todos.length
+          }})%</span
+        >
+        
+      </p>
+      <p>
+        et
+        <span color="sucess">
+          {{ todos | filter : "completed" | counter }} terminées
+          ({{
+            todos | filter : "completed" | counter | percentage : todos.length
+          }}%)
+        </span>
+        
+      </p>
+      <a
+      routerLink="/todos"
+      [appHover]="'scale(0.9)'"
+      mat-flat-button
+    >
+      Voir mes todos
+    </a>
+    </ng-container>
+  </mat-card-content>
+</mat-card>
